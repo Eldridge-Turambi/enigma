@@ -12,11 +12,13 @@ RSpec.describe Enigma do
     expect(@enigma).to be_an_instance_of(Enigma)
   end
 
+  ##Check to see if these assertions are appropriate
   it '#random_five_digit_string' do
     expect(@enigma.random_five_digit_string).to be_a(String)
     expect(@enigma.random_five_digit_string.split(//).count).to eq(5)
   end
 
+  ## Check the second Assertion
   it '#todays_date' do
     expect(@enigma.todays_date).to be_a(String)
     expect(@enigma.todays_date).to eq(Time.now.strftime('%d%m%y'))
