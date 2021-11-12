@@ -13,4 +13,13 @@ class Enigma
   def todays_date
     Time.now.strftime('%d%m%y')
   end
+
+  def the_keys
+    x = random_five_digit_string.chars
+    a_key = x[0] + x[1]
+    b_key = x[1] + x[2]
+    c_key = x[2] + x[3]
+    d_key = x[3] + x[4]
+    [a_key, b_key, c_key, d_key]
+  end
 end

@@ -24,6 +24,10 @@ RSpec.describe Enigma do
     expect(@enigma.todays_date).to eq(Time.now.strftime('%d%m%y'))
   end
 
+  it '#the_keys' do
+    expect(@enigma.the_keys).to be_a(Array)
+  end
+
   xit '#encrypt' do
     expect(@enigma.encrypt('hello world', '02715', '040895')).to be_a(Hash)
   end
