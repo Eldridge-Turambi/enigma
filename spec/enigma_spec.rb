@@ -28,7 +28,15 @@ RSpec.describe Enigma do
     expect(@enigma.the_keys).to be_a(Array)
   end
 
-  xit '#encrypt' do
+  it '#the_offsets' do
+    expect(@enigma.the_offsets).to be_a(Array)
+  end
+
+  it '#the_shifts' do
+    expect(@enigma.the_shifts).to be_a(Array)
+  end
+
+  it '#encrypt' do
     expect(@enigma.encrypt('hello world', '02715', '040895')).to be_a(Hash)
   end
 end
