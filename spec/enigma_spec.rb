@@ -25,18 +25,22 @@ RSpec.describe Enigma do
   end
 
   it '#the_keys' do
-    expect(@enigma.the_keys).to be_a(Array)
+    expect(@enigma.the_keys('02715')).to be_a(Array)
+    expect(@enigma.the_keys('02715')).to eq([02, 27, 71, 15])
   end
 
   it '#the_offsets' do
-    expect(@enigma.the_offsets).to be_a(Array)
+    expect(@enigma.the_offsets('040895')).to be_a(Array)
+    expect(@enigma.the_offsets('040895')).to eq([1, 0, 2, 5])
   end
 
   it '#the_shifts' do
-    expect(@enigma.the_shifts).to be_a(Array)
+    expect(@enigma.the_shifts([34, 44, 46, 67], [6, 6, 4, 1])).to be_a(Array)
+    expect(@enigma.the_shifts([02, 27, 71, 15], [1, 0, 2, 5])).to eq([3, 27, 73, 20])
   end
 
   it '#encrypt' do
     expect(@enigma.encrypt('hello world', '02715', '040895')).to be_a(Hash)
+    expect(@enigma.encrypt('hello world', '02715', '040895')).to eq({:date=>"040895", :encrypted=>"keder ohulw", :key=>"02715"})
   end
 end
