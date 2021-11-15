@@ -46,19 +46,14 @@ class Enigma
     formatted_key = the_keys(key)
     formatted_date = the_offsets(date)
     shifts = the_shifts(formatted_key, formatted_date)
-    message_array = message.chars
+    message_array = message.chars.map { |letter| letter.downcase }
     encrypted_message = []
     message_array.each_with_index do |letter, i|
-      if i % 4 == 0
-      encrypted_message << @alphabet.rotate(shifts[0])[@alphabet.index(letter)]
-        # @alphabet.rotate(shifts[0]) is alphabet shifted
-        # [@alphabet.index(letter)] the letter in that shift
-      elsif i % 4 == 1
-        encrypted_message << @alphabet.rotate(shifts[1])[@alphabet.index(letter)]
-      elsif i % 4 == 2
-        encrypted_message << @alphabet.rotate(shifts[2])[@alphabet.index(letter)]
-      elsif i % 4 == 3
-        encrypted_message << @alphabet.rotate(shifts[3])[@alphabet.index(letter)]
+      variable = i % 4
+      if @alphabet.include?(letter) == true
+        encrypted_message << @alphabet.rotate(shifts[variable])[@alphabet.index(letter)]
+      elsif @alphabet.include?(letter) == false
+        encrypted_message << letter
       end
     end
     result[:encryption] = encrypted_message.join
@@ -72,7 +67,7 @@ class Enigma
     formatted_key = the_keys(key)
     formatted_date = the_offsets(date)
     shifts = the_shifts(formatted_key, formatted_date)
-    message_array = message.chars
+    message_array = message.chars.map { |letter| letter.downcase }
     decrypted_message = []
     message_array.each_with_index do |letter, i|
       if i % 4 == 0
