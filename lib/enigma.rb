@@ -70,17 +70,23 @@ class Enigma
     message_array = message.chars.map { |letter| letter.downcase }
     decrypted_message = []
     message_array.each_with_index do |letter, i|
-      if i % 4 == 0
-      decrypted_message << @alphabet.rotate((shifts[0]) * -1)[@alphabet.index(letter)]
-        # @alphabet.rotate(shifts[0]) is alphabet shifted
-        # [@alphabet.index(letter)] the letter in that shift
-      elsif i % 4 == 1
-        decrypted_message << @alphabet.rotate((shifts[1]) * -1)[@alphabet.index(letter)]
-      elsif i % 4 == 2
-        decrypted_message << @alphabet.rotate((shifts[2]) * -1)[@alphabet.index(letter)]
-      elsif i % 4 == 3
-        decrypted_message << @alphabet.rotate((shifts[3]) * -1)[@alphabet.index(letter)]
+      variable = i % 4
+      if @alphabet.include?(letter) == true
+        decrypted_message << @alphabet.rotate((shifts[variable]) * -1)[@alphabet.index(letter)]
+      elsif @alphabet.include?(letter) == false
+        decrypted_message << letter
       end
+      # if i % 4 == 0
+      # decrypted_message << @alphabet.rotate((shifts[0]) * -1)[@alphabet.index(letter)]
+      #   # @alphabet.rotate(shifts[0]) is alphabet shifted
+      #   # [@alphabet.index(letter)] the letter in that shift
+      # elsif i % 4 == 1
+      #   decrypted_message << @alphabet.rotate((shifts[1]) * -1)[@alphabet.index(letter)]
+      # elsif i % 4 == 2
+      #   decrypted_message << @alphabet.rotate((shifts[2]) * -1)[@alphabet.index(letter)]
+      # elsif i % 4 == 3
+      #   decrypted_message << @alphabet.rotate((shifts[3]) * -1)[@alphabet.index(letter)]
+      # end
     end
     result[:decryption] = decrypted_message.join
     result[:key] = key
