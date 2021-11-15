@@ -61,7 +61,7 @@ class Enigma
         encrypted_message << @alphabet.rotate(shifts[3])[@alphabet.index(letter)]
       end
     end
-    result[:encrypted] = encrypted_message.join
+    result[:encryption] = encrypted_message.join
     result[:key] = key
     result[:date] = date
     result
@@ -88,7 +88,7 @@ class Enigma
         encrypted_message << @alphabet.rotate((shifts[3]) * -1)[@alphabet.index(letter)]
       end
     end
-    result[:decrypted] = encrypted_message.join
+    result[:decryption] = encrypted_message.join
     result[:key] = key
     result[:date] = date
     result
