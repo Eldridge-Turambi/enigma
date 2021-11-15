@@ -66,4 +66,31 @@ class Enigma
     result[:date] = date
     result
   end
+
+
+  def decrypt(message, key = random_five_digit_string, date = todays_date)
+    result = Hash.new(0)
+    formatted_key = the_keys(key)
+    formatted_date = the_offsets(date)
+    shifts = the_shifts(formatted_key, formatted_date)
+    message_array = message.chars
+    encrypted_message = []
+    message_array.each_with_index do |letter, i|
+      if i % 4 == 0
+      encrypted_message << @alphabet.rotate((shifts[0]) * -1)[@alphabet.index(letter)]
+        # @alphabet.rotate(shifts[0]) is alphabet shifted
+        # [@alphabet.index(letter)] the letter in that shift
+      elsif i % 4 == 1
+        encrypted_message << @alphabet.rotate((shifts[1]) * -1)[@alphabet.index(letter)]
+      elsif i % 4 == 2
+        encrypted_message << @alphabet.rotate((shifts[2]) * -1)[@alphabet.index(letter)]
+      elsif i % 4 == 3
+        encrypted_message << @alphabet.rotate((shifts[3]) * -1)[@alphabet.index(letter)]
+      end
+    end
+    result[:decrypted] = encrypted_message.join
+    result[:key] = key
+    result[:date] = date
+    result
+  end
 end
