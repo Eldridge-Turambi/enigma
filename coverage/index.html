@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2021-11-15T14:59:20-07:00">2021-11-15T14:59:20-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2021-11-15T15:19:11-07:00">2021-11-15T15:19:11-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,14 +23,14 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="green">
-  100.0%
+  96.83%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         11.59
+         11.89
        </span>
     </span> hits/line
     )
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>66</b> relevant lines,
-    <span class="green"><b>66</b> lines covered</span> and
-    <span class="red"><b>0</b> lines missed. </span>
+    <b>63</b> relevant lines,
+    <span class="green"><b>61</b> lines covered</span> and
+    <span class="red"><b>2</b> lines missed. </span>
     (<span class="green">
-  100.0%
+  96.83%
 </span>
 )
   </div>
@@ -72,12 +72,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#8daa53710ff1d3cbee382dd87775475e8d3bb73b" class="src_link" title="lib/enigma.rb">lib/enigma.rb</a></td>
-            <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">90</td>
-            <td class="cell--number">66</td>
-            <td class="cell--number">66</td>
-            <td class="cell--number">0</td>
-            <td class="cell--number">11.59</td>
+            <td class="green strong cell--number t-file__coverage">96.83 %</td>
+            <td class="cell--number">96</td>
+            <td class="cell--number">63</td>
+            <td class="cell--number">61</td>
+            <td class="cell--number">2</td>
+            <td class="cell--number">11.89</td>
             
           </tr>
         
@@ -103,7 +103,7 @@
     <h3>lib/enigma.rb</h3>
     <h4>
       <span class="green">
-  100.0%
+  96.83%
 </span>
 
       lines covered
@@ -112,9 +112,9 @@
     
 
     <div class="t-line-summary">
-      <b>66</b> relevant lines.
-      <span class="green"><b>66</b> lines covered</span> and
-      <span class="red"><b>0</b> lines missed.</span>
+      <b>63</b> relevant lines.
+      <span class="green"><b>61</b> lines covered</span> and
+      <span class="red"><b>2</b> lines missed.</span>
     </div>
 
     
@@ -923,111 +923,56 @@
 
             
 
-            <code class="ruby">      if i % 4 == 0</code>
+            <code class="ruby">      variable = i % 4</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="12" data-linenumber="74">
-            <span class="hits">12</span>
+          <li class="covered" data-hits="44" data-linenumber="74">
+            <span class="hits">44</span>
             
 
             
 
-            <code class="ruby">      decrypted_message &lt;&lt; @alphabet.rotate((shifts[0]) * -1)[@alphabet.index(letter)]</code>
+            <code class="ruby">      if @alphabet.include?(letter) == true</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="75">
-            
-            
-
+          <li class="covered" data-hits="44" data-linenumber="75">
+            <span class="hits">44</span>
             
 
-            <code class="ruby">        # @alphabet.rotate(shifts[0]) is alphabet shifted</code>
+            
+
+            <code class="ruby">        decrypted_message &lt;&lt; @alphabet.rotate((shifts[variable]) * -1)[@alphabet.index(letter)]</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="76">
+          <li class="missed" data-hits="0" data-linenumber="76">
             
             
 
             
 
-            <code class="ruby">        # [@alphabet.index(letter)] the letter in that shift</code>
+            <code class="ruby">      elsif @alphabet.include?(letter) == false</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="32" data-linenumber="77">
-            <span class="hits">32</span>
+          <li class="missed" data-hits="0" data-linenumber="77">
+            
             
 
             
 
-            <code class="ruby">      elsif i % 4 == 1</code>
+            <code class="ruby">        decrypted_message &lt;&lt; letter</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="12" data-linenumber="78">
-            <span class="hits">12</span>
-            
-
-            
-
-            <code class="ruby">        decrypted_message &lt;&lt; @alphabet.rotate((shifts[1]) * -1)[@alphabet.index(letter)]</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="20" data-linenumber="79">
-            <span class="hits">20</span>
-            
-
-            
-
-            <code class="ruby">      elsif i % 4 == 2</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="12" data-linenumber="80">
-            <span class="hits">12</span>
-            
-
-            
-
-            <code class="ruby">        decrypted_message &lt;&lt; @alphabet.rotate((shifts[2]) * -1)[@alphabet.index(letter)]</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="8" data-linenumber="81">
-            <span class="hits">8</span>
-            
-
-            
-
-            <code class="ruby">      elsif i % 4 == 3</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="8" data-linenumber="82">
-            <span class="hits">8</span>
-            
-
-            
-
-            <code class="ruby">        decrypted_message &lt;&lt; @alphabet.rotate((shifts[3]) * -1)[@alphabet.index(letter)]</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="83">
+          <li class="never" data-hits="" data-linenumber="78">
             
             
 
@@ -1038,57 +983,112 @@
         </div>
       
         <div>
+          <li class="never" data-hits="" data-linenumber="79">
+            
+            
+
+            
+
+            <code class="ruby">      # if i % 4 == 0</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="80">
+            
+            
+
+            
+
+            <code class="ruby">      # decrypted_message &lt;&lt; @alphabet.rotate((shifts[0]) * -1)[@alphabet.index(letter)]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="81">
+            
+            
+
+            
+
+            <code class="ruby">      #   # @alphabet.rotate(shifts[0]) is alphabet shifted</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="82">
+            
+            
+
+            
+
+            <code class="ruby">      #   # [@alphabet.index(letter)] the letter in that shift</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="83">
+            
+            
+
+            
+
+            <code class="ruby">      # elsif i % 4 == 1</code>
+          </li>
+        </div>
+      
+        <div>
           <li class="never" data-hits="" data-linenumber="84">
             
             
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">      #   decrypted_message &lt;&lt; @alphabet.rotate((shifts[1]) * -1)[@alphabet.index(letter)]</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="4" data-linenumber="85">
-            <span class="hits">4</span>
+          <li class="never" data-hits="" data-linenumber="85">
+            
             
 
             
 
-            <code class="ruby">    result[:decryption] = decrypted_message.join</code>
+            <code class="ruby">      # elsif i % 4 == 2</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="4" data-linenumber="86">
-            <span class="hits">4</span>
+          <li class="never" data-hits="" data-linenumber="86">
+            
             
 
             
 
-            <code class="ruby">    result[:key] = key</code>
+            <code class="ruby">      #   decrypted_message &lt;&lt; @alphabet.rotate((shifts[2]) * -1)[@alphabet.index(letter)]</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="4" data-linenumber="87">
-            <span class="hits">4</span>
+          <li class="never" data-hits="" data-linenumber="87">
+            
             
 
             
 
-            <code class="ruby">    result[:date] = date</code>
+            <code class="ruby">      # elsif i % 4 == 3</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="4" data-linenumber="88">
-            <span class="hits">4</span>
+          <li class="never" data-hits="" data-linenumber="88">
+            
             
 
             
 
-            <code class="ruby">    result</code>
+            <code class="ruby">      #   decrypted_message &lt;&lt; @alphabet.rotate((shifts[3]) * -1)[@alphabet.index(letter)]</code>
           </li>
         </div>
       
@@ -1099,12 +1099,78 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">      # end</code>
           </li>
         </div>
       
         <div>
           <li class="never" data-hits="" data-linenumber="90">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="4" data-linenumber="91">
+            <span class="hits">4</span>
+            
+
+            
+
+            <code class="ruby">    result[:decryption] = decrypted_message.join</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="4" data-linenumber="92">
+            <span class="hits">4</span>
+            
+
+            
+
+            <code class="ruby">    result[:key] = key</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="4" data-linenumber="93">
+            <span class="hits">4</span>
+            
+
+            
+
+            <code class="ruby">    result[:date] = date</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="4" data-linenumber="94">
+            <span class="hits">4</span>
+            
+
+            
+
+            <code class="ruby">    result</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="95">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="96">
             
             
 
