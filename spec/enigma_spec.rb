@@ -41,7 +41,12 @@ RSpec.describe Enigma do
 
   it '#encrypt' do
     expect(@enigma.encrypt('hello world', '02715', '040895')).to be_a(Hash)
-    expect(@enigma.encrypt('hello world', '02715', '040895')).to eq({:date=>"040895", :encryption=>"keder ohulw", :key=>"02715"})
+    expect(@enigma.encrypt("hello world", "02715")).to be_a(Hash)
+    expect(@enigma.encrypt('Hello world!', '02715', '040895')).to eq({:date=>"040895", :encryption=>"keder ohulw!", :key=>"02715"})
+    expect(@enigma.encrypt("hello world", "02715")).to eq({:date=>"151121", :encryption=>"pkfawfqdzry", :key=>"02715"})
+    ##This is hard to test because of the randomness
+    # expect(@enigma.encrypt("hello world")).to eq({:date=>"141121", :encryption=>"qnstxicw uk", :key=>"03034"})
+
   end
 
   it '#decrypt' do
@@ -52,6 +57,10 @@ RSpec.describe Enigma do
     }
     expect(@enigma.decrypt('keder ohulw', '02715', '040895')).to be_a(Hash)
     expect(@enigma.decrypt('keder ohulw', '02715', '040895')).to eq(expected)
+    expect(@enigma.decrypt('pkfawfqdzry', "02715", '151121')).to eq({:date=>"151121", :decryption=>"hello world", :key=>"02715"})
+    encrypted = @enigma.encrypt("hello world", "02715")
+    expect(@enigma.decrypt(encrypted[:encryption], "02715")).to eq({:date=>"151121", :decryption=>"hello world", :key=>"02715"})
+
   end
 
 end
