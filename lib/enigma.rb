@@ -76,17 +76,6 @@ class Enigma
       elsif @alphabet.include?(letter) == false
         decrypted_message << letter
       end
-      # if i % 4 == 0
-      # decrypted_message << @alphabet.rotate((shifts[0]) * -1)[@alphabet.index(letter)]
-      #   # @alphabet.rotate(shifts[0]) is alphabet shifted
-      #   # [@alphabet.index(letter)] the letter in that shift
-      # elsif i % 4 == 1
-      #   decrypted_message << @alphabet.rotate((shifts[1]) * -1)[@alphabet.index(letter)]
-      # elsif i % 4 == 2
-      #   decrypted_message << @alphabet.rotate((shifts[2]) * -1)[@alphabet.index(letter)]
-      # elsif i % 4 == 3
-      #   decrypted_message << @alphabet.rotate((shifts[3]) * -1)[@alphabet.index(letter)]
-      # end
     end
     result[:decryption] = decrypted_message.join
     result[:key] = key
