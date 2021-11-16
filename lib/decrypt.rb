@@ -7,7 +7,6 @@ output_file = ARGV[1]
 key = ARGV[2]
 date = ARGV[3]
 
-
 encrypted_txt = File.read(input_file).delete!("\n")
 
 File.open(output_file, "w") do |file|
